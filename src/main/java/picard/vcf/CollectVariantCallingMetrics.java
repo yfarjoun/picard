@@ -309,7 +309,7 @@ public class CollectVariantCallingMetrics extends CommandLineProgram {
          * The total number of variants in a particular sample that have a GQ score of 0.
          */
         @MergeByAdding
-        public long TOTAL_GQ0_VARIANTS;   
+        public long TOTAL_GQ0_VARIANTS;
         
         /**
          * The total number of variants in a particular sample that have a missing genotype.
