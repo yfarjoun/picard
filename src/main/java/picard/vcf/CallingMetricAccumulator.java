@@ -178,8 +178,10 @@ public class CallingMetricAccumulator implements VariantProcessor.Accumulator<Ca
                                     final VariantContext vc,
                                     final boolean hasSingletonSample) {
         updateSummaryMetric(metric, genotype, vc, hasSingletonSample);
-
-        if (genotype != null && !vc.isFiltered()) {
+        if (vc.isFiltered()) return;
+        if (genotype == null) {
+            ++metric.TOTAL_MISSING_GT_VARIANTS;
+        } else {
             if (genotype.getGQ() == 0) {
                 ++metric.TOTAL_GQ0_VARIANTS;
             }
